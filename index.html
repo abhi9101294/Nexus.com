@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Gaming Portal</title>
+    <style>
+        :root {
+            --bg-dark: #0f111a;
+            --card-bg: #1a1d2e;
+            --accent: #ff4655;
+            --accent-glow: #00f0ff;
+            --text: #ffffff;
+            --text-dim: #9ea4b0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background-color: rgba(15, 17, 26, 0.95);
+            border-bottom: 2px solid var(--accent);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-glow);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 5%;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(255, 70, 85, 0.1) 0%, rgba(15, 17, 26, 1) 100%);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            color: var(--text-dim);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Featured Games Grid */
+        .container {
+            padding: 2rem 5%;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--accent);
+            padding-left: 10px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #2a2e45;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 240, 255, 0.2);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 180px;
+            background-color: #2a2e45;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .card-body {
+            padding: 1.2rem;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-text {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background-color: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #d93845;
+        }
+
+        /* Embedded Arcade Game */
+        .arcade-section {
+            background-color: var(--card-bg);
+            margin: 3rem 5%;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        #gameCanvas {
+            background-color: #000;
+            border: 2px solid var(--accent-glow);
+            border-radius: 4px;
+            margin-top: 1rem;
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">NEXUS<span>GAMES</span></div>
+        <ul class="nav-links">
+            <li><a href="#games">Games</a></li>
+            <li><a href="#arcade">Arcade</a></li>
+            <li><a href="#community">Community</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>Welcome to the Nexus</h1>
+        <p>Discover free browser games, gaming news, and join our active community.</p>
+        <a href="#arcade" class="btn">Play Arcade Game</a>
+    </section>
+
+    <section class="container" id="games">
+        <h2 class="section-title">Popular Games</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-img">🚀</div>
+                <div class="card-body">
+                    <h3 class="card-title">Space Raider</h3>
+                    <p class="card-text">Blast through alien waves in this retro arcade space shooter.</p>
+                    <button class="btn">Play Now</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img">⚔️</div>
+                <div class="card-body">
+                    <h3 class="card-title">Dungeon Quest</h3>
+                    <p class="card-text">Explore procedural dungeons, collect loot, and defeat bosses.</p>
+                    <button class="btn">Play Now</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img">🏎️</div>
+                <div class="card-body">
+                    <h3 class="card-title">Cyber Drift</h3>
+                    <p class="card-text">High-speed neon racing with customizable vehicles.</p>
+                    <button class="btn">Play Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="arcade-section" id="arcade">
+        <h2 class="section-title" style="border: none;">Mini Arcade: Dodge the Blocks</h2>
+        <p>Use Left/Right arrow keys or click the sides to dodge falling obstacles.</p>
+        <canvas id="gameCanvas" width="400" height="300"></canvas>
+    </section>
+
+    <script>
+        // Mini Canvas Game Logic
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let player = { x: 180, y: 260, width: 40, height: 20, speed: 5 };
+        let obstacles = [];
+        let score = 0;
+        let gameOver = false;
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft' && player.x > 0) player.x -= player.speed * 4;
+            if (e.key === 'ArrowRight' && player.x < canvas.width - player.width) player.x += player.speed * 4;
+        });
+
+        function spawnObstacle() {
+            if (Math.random() < 0.05) {
+                obstacles.push({ x: Math.random() * (canvas.width - 30), y: 0, size: 30, speed: 3 });
+            }
+        }
+
+        function update() {
+            if (gameOver) return;
+
+            spawnObstacle();
+
+            for (let i = 0; i < obstacles.length; i++) {
+                obstacles[i].y += obstacles[i].speed;
+
+                // Collision detection
+                if (
+                    player.x < obstacles[i].x + obstacles[i].size &&
+                    player.x + player.width > obstacles[i].x &&
+                    player.y < obstacles[i].y + obstacles[i].size &&
+                    player.y + player.height > obstacles[i].y
+                ) {
+                    gameOver = true;
+                }
+            }
+
+            obstacles = obstacles.filter(obs => obs.y < canvas.height);
+            score++;
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw player
+            ctx.fillStyle = '#00f0ff';
+            ctx.fillRect(player.x, player.y, player.width, player.height);
+
+            // Draw obstacles
+            ctx.fillStyle = '#ff4655';
+            obstacles.forEach(obs => ctx.fillRect(obs.x, obs.y, obs.size, obs.size));
+
+            // Draw score
+            ctx.fillStyle = '#ffffff';
+            ctx.font = '16px Arial';
+            ctx.fillText(`Score: ${score}`, 10, 20);
+
+            if (gameOver) {
+                ctx.fillStyle = '#ff4655';
+                ctx.font = '24px Arial';
+                ctx.fillText('GAME OVER', 130, 150);
+                ctx.font = '14px Arial';
+                ctx.fillText('Refresh page to restart', 130, 180);
+            }
+        }
+
+        function gameLoop() {
+            update();
+            draw();
+            if (!gameOver) requestAnimationFrame(gameLoop);
+        }
+
+        gameLoop();
+    </script>
+</body>
+</html>
